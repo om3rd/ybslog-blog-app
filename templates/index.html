@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}    
+
+{% block body %}
+
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+        <div class="h-100 p-5 text-bg-dark rounded-3">
+    <h3>Welcome To Blog</h3>
+    <p>This is a blog that I want to improve myself on new blog</p>
+        </div>
+    </div>
+</div>
+
+<p>
+    {% if request.user.is_authenticated %}
+    Logged In, {{request.user.username}}
+    
+    {% else %}
+    Haven't Logged Yet
+
+    {% endif %}
+
+</p>
+
+{% endblock body %}

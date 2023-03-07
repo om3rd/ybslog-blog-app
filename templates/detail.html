@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<main class="container">
+    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
+      <div class="col-md-6 px-0">
+        <h1 class="display-4 fst-italic">{{article.title}}</h1>
+        <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+        
+      </div>
+    </div>
+  
+    
+    <div class="row g-5">
+      <div class="col-md-8">
+        <h3 class="pb-4 mb-4 fst-italic border-bottom">{{article.title}}</h3>
+        <p class="blog-post-meta">{{article.created_date}}, by {{article.author}}</a></p>
+        <article class="blog-post">
+          <p> {{article.content}} </p>
+        </article>
+  
+        <article class="blog-post">
+          <h2 class="blog-post-title">Another blog post</h2>
+        </article>
+  
+        <nav class="blog-pagination" aria-label="Pagination">
+          <a class="btn btn-outline-primary" href="#">Older</a>
+          <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
+        </nav> 
+      </div>
+  
+      <div class="col-md-4">
+        <div class="position-sticky" style="top: 2rem;">  
+          <div class="p-4 bg-light rounded">
+            <h4 class="fst-italic">Elsewhere</h4>
+            <ol class="list-unstyled">
+              <li><a href="#">GitHub</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">Linkedln</a></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </div>
+</main>
+<hr>
+<footer class="blog-footer">
+    <p style = "text-align:center;">YBSLog created by <a href="https://www.linkedin.com/in/%C3%B6mer-%C3%BC%C3%A7%C3%BCnc%C3%BC-39b807233/">@om3rd</a>   <a href="">Back to top</a></p>
+    <p style = "text-align:center;">
+      <a href="">Back to top</a>
+    </p>
+</footer>
+
+
+
+
+{% endblock body %}
+
+
+
+

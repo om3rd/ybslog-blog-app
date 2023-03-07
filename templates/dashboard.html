@@ -1,0 +1,56 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<h2 style ="text-align:center;">Dashboard</h2>
+<hr>
+<p style = "font-family: serif; font-size: 20px; font-style: normal;">
+    Welcome,{{request.user.username}}
+</p>
+<hr>
+
+<a class = "btn btn-success" href = "articles/addarticle">Add Article</a>
+<hr>
+
+{% if articles %}
+<table class="table table-light table-hover table-striped">
+    <thead class = "table-success">
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Header</th>
+        <th scope="col">Author</th>
+        <th scope="col">Date</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for article in articles  %}
+        <tr>
+            <th scope="row">{{article.id}}</th>
+            <td><a href="/articles/article/{{article.id}}">{{article.title}}</a></td>
+            <td>{{article.author.username}}</td>
+            <td>{{article.created_date}}</td>
+            <td><a href = "/articles/update/{{article.id}}" class = "btn btn-outline-warning">Update</a></td> 
+            <td><a href = "/articles/delete/{{article.id}}" class = "btn btn-outline-danger">Delete</a></td> 
+        </tr>
+        {% endfor %}
+
+      
+    </tbody>
+  </table>
+
+{% else %}
+<div class="alert alert-warning" role="alert">
+    <h4 class="alert-heading">Oops..</h4>
+    <p>It seems this place is empty, C'mon create your first article and share it with other people.</p>
+    <hr>
+    <p class="mb-0">Don't worry you can do it.</p>
+  </div>
+{% endif %}
+
+
+
+
+{% endblock body %}
+
+
