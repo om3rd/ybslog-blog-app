@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from article import views #article klasöründeki views dosyası içindeki index fonksiyonunu al dedik
                             #hatta direkt article klasöründen views dosyasını aldık böylece path kısmında
@@ -29,3 +31,4 @@ urlpatterns = [
     path('user/',include("user.urls")),  #user/register , user/login
     
 ]
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

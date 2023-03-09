@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'user',
     'crispy_forms',
     'crispy_bootstrap5',
-    'ckeditor'
+    'ckeditor',
+    'django_cleanup.apps.CleanupConfig',
 ]
 
 MIDDLEWARE = [
@@ -68,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -146,3 +148,6 @@ CKEDITOR_CONFIGS = {
         "width": "100%",
     }
 }
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")

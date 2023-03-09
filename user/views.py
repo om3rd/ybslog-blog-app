@@ -11,8 +11,12 @@ def register(request):
     if form.is_valid():  #bunu yaptığımızda clean metodunu alıyor django
         username = form.cleaned_data.get("username")
         password = form.cleaned_data.get("password")
+        linkedin = form.cleaned_data.get("linkedin")
+        github = form.cleaned_data.get("github")
         newUser = User(username = username)  #user objemizi oluşturduk
         newUser.set_password(password)
+        newUser = User(linkedin = linkedin)
+        newUser = User(github = github)
         newUser.save()   #butona basıldığında da veritabanına kayıt edilcek
             
         login(request,newUser) #kullanıcı kayıt olduktan sonra login olması için
