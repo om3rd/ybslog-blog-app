@@ -6,9 +6,12 @@
       <div class="col-md-6 px-0">
         <h1 class="display-4 fst-italic">{{article.title}}</h1>
         <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-        
       </div>
     </div>
+      <br>
+      {% if article.article_image %}
+      <img class="img-fluid rounded "src ="{{article.article_image.url}}" alt = "">
+      {% endif %}
   
     
     <div class="row g-5">
@@ -16,7 +19,7 @@
         <h3 class="pb-4 mb-4 fst-italic border-bottom">{{article.title}}</h3>
         <p class="blog-post-meta">{{article.created_date}}, by {{article.author}}</a></p>
         <article class="blog-post">
-          <p> {{article.content}} </p>
+          <p> {{article.content|safe}} </p>
         </article>
   
         <article class="blog-post">
@@ -45,7 +48,7 @@
 </main>
 <hr>
 <footer class="blog-footer">
-    <p style = "text-align:center;">YBSLog created by <a href="https://www.linkedin.com/in/%C3%B6mer-%C3%BC%C3%A7%C3%BCnc%C3%BC-39b807233/">@om3rd</a>   <a href="">Back to top</a></p>
+    <p style = "text-align:center;">YBSLog created by <a href="https://www.linkedin.com/in/%C3%B6mer-%C3%BC%C3%A7%C3%BCnc%C3%BC-39b807233/">@om3rd</a></p>
     <p style = "text-align:center;">
       <a href="">Back to top</a>
     </p>

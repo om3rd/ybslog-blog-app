@@ -9,6 +9,9 @@ class Article(models.Model):  #djangonun kendi tablosu olan auth user ı aldık
     title = models.CharField(max_length = 50) 
     content = RichTextField()
     created_date = models.DateField(auto_now_add = True)
+    linkedin = models.URLField(null = False, blank = True, max_length=200)
+    github = models.URLField(max_length = 200, null = False, blank = True)
+    article_image = models.FileField(blank = True, null = True,verbose_name ="Add photo into article")
     
     def __str__(self):  #admin panalindeki articles object yerine direkt title kendi döncek
         return self.title
