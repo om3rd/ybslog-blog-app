@@ -15,12 +15,12 @@ def register(request):
         github = form.cleaned_data.get("github")
         newUser = User(username = username)  #user objemizi oluşturduk
         newUser.set_password(password)
-        newUser = User(linkedin = linkedin)
-        newUser = User(github = github)
+        #newUser = User(linkedin = linkedin)
+        #newUser = User(github = github)
         newUser.save()   #butona basıldığında da veritabanına kayıt edilcek
             
         login(request,newUser) #kullanıcı kayıt olduktan sonra login olması için
-        messages.info(request,"Successfully Signed Up!")
+        messages.success(request,"Successfully Signed Up!")
         
         return redirect("index") #redirect yaparak login olan kullanıcı anasayfaya yönlendirilcek        
         
