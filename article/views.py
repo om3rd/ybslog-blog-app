@@ -80,3 +80,13 @@ def delete(request,id):
     else:
         messages.info(request, "You Can't Delete Other User's Article!")
         return redirect("article:dashboard")
+    
+    
+    
+def articles(request): #niye Article classından aldık çünkü veri tabanı modeli onun içinde
+    articles = Article.objects.all() #articles adında liste belirledik ve tüm article'ları içine atacak
+    context = {
+        "articles":articles
+    }
+    
+    return render(request,"articles.html",context)
