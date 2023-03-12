@@ -2,56 +2,25 @@
 {% block body %}
 
 <h1 style ="text-align:center;">Articles</h1>
-<hr>
-
-
-
 {% if articles %} <!--eğer blogta article varsa buraya gidecek class'dan ürettiğimiz nesne adı-->
 
 {% for article in articles %} <!--articles nesnesindeki tüm makaleleri döndürdük-->
-<main class="container">
-    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
-      <div class="col-md-6 px-0">
-        <a href = "/articles/article/{{article.id}}"><h1 class="display-4 fst-italic">{{article.title}}</h1></a>
-        <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
+<main>
+  <div class="container marketing">
+    <hr class="featurette-divider">
+    <div class="row featurette">
+      <div class="col-md-7">
+        <a href = "/articles/article/{{article.id}}"><h2 class="featurette-heading fw-normal lh-1">{{article.title}}</h2></a>
+        <p class="lead text-break ">{{article.subtitle}}</p>
       </div>
-    </div>
-      <br>
       {% if article.article_image %}
-      <a href = "/articles/article/{{article.id}}"><img class="img-fluid rounded"src="{{article.article_image.url}}" class="img-fluid" alt=""></a>
-      <!--<img class="img-fluid rounded "src ="{{article.article_image.url}}" alt = "">-->
-      {% endif %}
-    <div class="row g-5">
-      <div class="col-md-8">
-        <h3 class="pb-4 mb-4 fst-italic border-bottom">{{article.title}}</h3>
-        <p class="blog-post-meta">{{article.created_date}}, by {{article.author}}</a></p>
-        <article class="blog-post">
-          <p> {{article.content|safe}} </p>
-        </article>
-  
-        <article class="blog-post">
-          <h2 class="blog-post-title">Another blog post</h2>
-        </article>
-  
-        <nav class="blog-pagination" aria-label="Pagination">
-          <a class="btn btn-outline-primary" href="#">Older</a>
-          <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
-        </nav> 
+      <div class="col-md-5 d-inline-block">
+        <a href = "/articles/article/{{article.id}}"><img class="img-responsive" src="{{article.article_image.url}}" alt="Chania" width="500" height="500"></a>
       </div>
-  
-      <div class="col-md-4">
-        <div class="position-sticky" style="top: 2rem;">  
-          <div class="p-4 bg-light rounded">
-            <h4 class="fst-italic">Elsewhere</h4>
-            <ol class="list-unstyled">
-              <li><a xlink:href="">GitHub</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Linkedln</a></li>
-            </ol>
-          </div>
-        </div>
-      </div>
+      {% endif %}     
     </div>
+    <!-- /END THE FEATURETTES -->
+  </div><!-- /.container -->
 </main>
 
 {% endfor %}
@@ -82,12 +51,4 @@
   </div>
 
 {% endif %}
-
-
-
-
-
-
-
-
 {% endblock body %}
