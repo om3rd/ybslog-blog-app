@@ -2,20 +2,44 @@
 
 {% block body %}
 {% load crispy_forms_tags %}
-
-<div class="row">
-    <div class="col-md-6 offset-md-3">
-        <h2 style ="text-align:center;">Login</h2>
-        <hr>
-        <form method ="post">
-            {% csrf_token %}
-            {{form|crispy}}
-            <br>
-            <button type = "submit" class = "btn btn-danger">Login</button>
-        </form>
+{% load static %}
+<section class="vh-100 bg-image" style="background-image: url('https://img.freepik.com/free-photo/composition-laptop-compass-engineering_23-2148169502.jpg?w=1380&t=st=1678734821~exp=1678735421~hmac=a00b37ec0e413a6bd2977dc49e297d5f0f83b64832123f8c860e8a933190f186');width:1500px;">
+    <div class="container h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-lg-12 col-xl-11">
+          <div class="card text-black" style="border-radius: 50px;">
+            <div class="card-body p-md-5">
+              <div class="row justify-content-center">
+                <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+  
+                  <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Login</p>
+  
+                  <form method= "POST" class="mx-1 mx-md-4">
+                    {% csrf_token %}
+                    {{form|crispy}}
+  
+                    <div class="d-flex flex-row align-items-center mb-4">
+                    </div>
+                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                      <button type="submit" class="btn btn-primary btn-lg">Login</button>
+                    </div>
+  
+                  </form>
+  
+                </div>
+                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
+  
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+                    class="img-fluid" alt="Sample image">
+  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-</div>
-
+</section>
 
 {% endblock body %}
 

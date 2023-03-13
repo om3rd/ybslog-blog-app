@@ -12,10 +12,11 @@
       <div class="col-md-7">
         <a href = "/articles/article/{{article.id}}"><h2 class="featurette-heading fw-normal lh-1">{{article.title}}</h2></a>
         <p class="lead text-break ">{{article.subtitle}}</p>
+        <p class="lead">by {{article.author}}</p>
       </div>
       {% if article.article_image %}
       <div class="col-md-5 d-inline-block">
-        <a href = "/articles/article/{{article.id}}"><img class="img-responsive" src="{{article.article_image.url}}" alt="Chania" width="500" height="500"></a>
+        <a href = "/articles/article/{{article.id}}"><img class="img-responsive" src="{{article.article_image.url}}" alt="Chania" width="400" height="400"></a>
       </div>
       {% endif %}     
     </div>
