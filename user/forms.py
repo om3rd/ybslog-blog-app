@@ -4,7 +4,7 @@ from urllib.parse import urlparse
 
 
 class RegisterForm(forms.Form):
-    username = forms.CharField(max_length = 50,label = "User Name")
+    username = forms.CharField(max_length = 50,label = "Username")
     password = forms.CharField(min_length = 6, max_length = 20,label = "Password",widget = forms.PasswordInput)
     confirm = forms.CharField(min_length= 6,max_length = 20,label = "Confirm",widget = forms.PasswordInput)
     #github = forms.URLField(required = True)
@@ -40,7 +40,7 @@ class RegisterForm(forms.Form):
 
     
 class LoginForm(forms.Form):
-    username = forms.CharField(label = "User Name")
+    username = forms.CharField(label = "Username")
     password = forms.CharField(label = "Password",widget = forms.PasswordInput)
     
     
