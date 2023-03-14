@@ -40,12 +40,14 @@
   background-position: center center;
 }
 
-.card-registration .select-input.form-control[readonly]:not([disabled]) {
-    font-size: 1rem;
-    line-height: 2.15;
-    padding-left: .75em;
-    padding-right: .75em;
-    }
-    .card-registration .select-arrow {
-    top: 13px;
-    }
+
+
+/* Set a background image by replacing the URL below */
+/*body {
+  background: url('https://img.freepik.com/free-photo/composition-laptop-compass-engineering_23-2148169502.jpg?w=1380&t=st=1678734821~exp=1678735421~hmac=a00b37ec0e413a6bd2977dc49e297d5f0f83b64832123f8c860e8a933190f186') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+*/
