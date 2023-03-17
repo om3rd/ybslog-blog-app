@@ -84,6 +84,14 @@ def delete(request,id):
     
     
 def articles(request): #niye Article classından aldık çünkü veri tabanı modeli onun içinde
+    keyword = request.GET.get("keyword")  #navbarda yer alan search butonu için yaptık çünkü name olarak keyword olarak geçiyor
+                        # eğer search alanında bir GET request varsa if durumuna girecek böylece başlık içindeki keyword'u arayabiliriz    
+    if keyword:
+        articles = Article.objects.filter(title__contains = keyword)
+        
+        return render(request,"articles.html",{"articles":articles}) #kelimeyi bulduğunda tekrar articles sayfası gelsin
+    
+    #eğer kullanıcı arama yapmıyorsa da if'e girmeden burdan devam edecek    
     articles = Article.objects.all() #articles adında liste belirledik ve tüm article'ları içine atacak
     context = {
         "articles":articles
