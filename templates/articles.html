@@ -1,27 +1,31 @@
 {% extends 'layout.html' %}
 {% block body %}
 
-<h1 style ="text-align:center;">Articles</h1>
+<h1 class="display-4 text-center">Articles</h1>
 {% if articles %} <!--eğer blogta article varsa buraya gidecek class'dan ürettiğimiz nesne adı-->
 
 {% for article in articles %} <!--articles nesnesindeki tüm makaleleri döndürdük-->
 <main>
-  <div class="container marketing">
-    <hr class="featurette-divider">
-    <div class="row featurette">
-      <div class="col-md-7">
-        <a href = "/articles/article/{{article.id}}"><h2 class="featurette-heading fw-normal lh-1">{{article.title}}</h2></a>
-        <p class="lead text-break ">{{article.subtitle}}</p>
-        <p class="lead">by {{article.author}}</p>
+  <div class="bg-light rounded shadow-sm py-5 px-4">
+    <div class="container-fluid py-8">
+      <hr class="featurette-divider">
+      <div class="row featurette">
+        <div class="col-md-7">
+          <a href = "/articles/article/{{article.id}}"><h2 class="featurette-heading fw-normal lh-1">{{article.title}}</h2></a>
+          <p class="lead text-break ">{{article.subtitle}}</p>
+          <p class="text-muted">{{article.created_date}}, by {{article.author}}</p>
+          <p class="lead">{{article.content|safe|truncatewords:30}}</p>
+          <a href="/articles/article/{{article.id}}" class = "btn btn-danger btn-sm">Read More</a>
+        </div>
+        {% if article.article_image %}
+        <div class="col-md-5 d-inline-block">
+          <a href = "/articles/article/{{article.id}}"><img class="img-responsive" src="{{article.article_image.url}}" alt="Chania" width="400" height="400"></a>
+        </div>
+        {% endif %}     
       </div>
-      {% if article.article_image %}
-      <div class="col-md-5 d-inline-block">
-        <a href = "/articles/article/{{article.id}}"><img class="img-responsive" src="{{article.article_image.url}}" alt="Chania" width="400" height="400"></a>
-      </div>
-      {% endif %}     
+      <!-- /END THE FEATURETTES -->
     </div>
-    <!-- /END THE FEATURETTES -->
-  </div><!-- /.container -->
+  </div>  <!-- /.container -->
 </main>
 
 {% endfor %}
@@ -46,10 +50,10 @@
 {% else %}
 <div class="alert alert-warning" role="alert">
     <h4 class="alert-heading">Oops..</h4>
-    <p>We haven't got an article.</p>
+    <p>We Couldn't Find The Article You're Searching For.</p>
     <hr>
-    <p class="mb-0">Create an article.</p>
-  </div>
+    <p class="mb-0">Make sure you're writing correct.</p>
+</div>
 
 {% endif %}
 {% endblock body %}
