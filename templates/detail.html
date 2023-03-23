@@ -11,7 +11,7 @@
       <br>
       {% if article.article_image %}
       <div class="row featurette align-items-center">
-        <a href = "/articles/article/{{article.id}}"><img class="img-responsive" src="{{article.article_image.url}}" alt="Chania" width="800" height="800"></a>
+        <a href = "{% url 'articles:detail' article.id %}"><img class="img-responsive" src="{{article.article_image.url}}" alt="Chania" width="800" height="800"></a>
       </div>
       <br><br><br>
       {% endif %}
@@ -22,14 +22,6 @@
         <article class="blog-post">
           <p> {{article.content|safe}} </p>
         </article>
-  
-        <article class="blog-post">
-          <h2 class="blog-post-title">Another blog post</h2>
-        </article>
-        <nav class="blog-pagination" aria-label="Pagination">
-          <a class="btn btn-outline-primary" href="#">Older</a>
-          <a class="btn btn-outline-secondary" href="#" tabindex="-1" aria-disabled="true">Newer</a>
-        </nav> 
       </div>
   
       <div class="col-md-4">
