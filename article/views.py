@@ -98,3 +98,8 @@ def articles(request): #niye Article classından aldık çünkü veri tabanı mo
     }
     
     return render(request,"articles.html",context)
+
+
+@login_required(login_url= "user:login")
+def Addcomment(request,id):
+    pass
