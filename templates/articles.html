@@ -5,21 +5,21 @@
 {% if articles %} <!--eğer blogta article varsa buraya gidecek class'dan ürettiğimiz nesne adı-->
 
 {% for article in articles %} <!--articles nesnesindeki tüm makaleleri döndürdük-->
-<main>
-  <div class="bg-light rounded shadow-sm py-5 px-4">
+<main>  <!--#F4FCFF-->
+  <div class="rounded shadow-sm py-5 px-4" style = "background-color: #EEFFF2">
     <div class="container-fluid py-8">
       <hr class="featurette-divider">
       <div class="row featurette">
         <div class="col-md-7">
-          <a href = "/articles/article/{{article.id}}"><h2 class="featurette-heading fw-normal lh-1">{{article.title}}</h2></a>
+          <a href = "{% url 'articles:detail' article.id %}"><h2 class="featurette-heading fw-normal lh-1">{{article.title}}</h2></a>
           <p class="lead text-break ">{{article.subtitle}}</p>
           <p class="text-muted">{{article.created_date}}, by {{article.author}}</p>
           <p class="lead">{{article.content|safe|truncatewords:30}}</p>
-          <a href="/articles/article/{{article.id}}" class = "btn btn-danger btn-sm">Read More</a>
-        </div>
+          <a href="{% url 'articles:detail' article.id %}" class = "btn btn-danger btn-sm">Read More</a>
+        </div>   
         {% if article.article_image %}
         <div class="col-md-5 d-inline-block">
-          <a href = "/articles/article/{{article.id}}"><img class="img-responsive" src="{{article.article_image.url}}" alt="Chania" width="400" height="400"></a>
+          <a href = "{% url 'articles:detail' article.id %}"><img class="img-responsive rounded-circle" src="{{article.article_image.url}}" alt="Chania" width="400" height="400"></a>
         </div>
         {% endif %}     
       </div>

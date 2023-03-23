@@ -8,7 +8,7 @@
 </p></strong></em>
 <hr>
 
-<a class = "btn btn-success" href = "articles/addarticle">Add Article</a>
+<a class = "btn btn-success" href = "{% url 'articles:addarticle' %}">Add Article</a>
 <hr>
 
 {% if articles %}
@@ -27,11 +27,11 @@
         {% for article in articles  %}
         <tr>
             <th scope="row">{{article.id}}</th>
-            <td><a href="/articles/article/{{article.id}}">{{article.title}}</a></td>
+            <td><a href="{% url 'articles:detail' article.id %}">{{article.title}}</a></td>
             <td>{{article.author.username}}</td>
             <td>{{article.created_date}}</td>
-            <td><a href = "/articles/update/{{article.id}}" class = "btn btn-outline-warning">Update</a></td> 
-            <td><a href = "/articles/delete/{{article.id}}" class = "btn btn-outline-danger">Delete</a></td> 
+            <td><a href = "{% url 'articles:update' article.id %}" class = "btn btn-outline-warning">Update</a></td> 
+            <td><a href = "{% url 'articles:delete' article.id %}" class = "btn btn-outline-danger">Delete</a></td> 
         </tr>
         {% endfor %}
 
