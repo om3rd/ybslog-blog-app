@@ -60,3 +60,24 @@
   color: #555;
 }
 
+.page-holder {
+  min-height: 200vh;
+}
+
+.bg-cover {
+  
+    background-image: url('img_girl.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed; 
+    background-size: 100% 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+

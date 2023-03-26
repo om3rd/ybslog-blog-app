@@ -1,18 +1,19 @@
 {% extends 'layout.html' %}
 
 {% block body %}
-<h1 class="display-5 text-center">Dashboard</h1>
-<hr>
-<p class = "lead"><strong><em>
-    Welcome, {{request.user.username}}
-</p></strong></em>
-<hr>
+<div class = "container">
+  <h1 class="display-5 text-center">Dashboard</h1>
+  <hr>
+  <p class = "lead"><strong><em>
+      Welcome, {{request.user.username}}
+  </p></strong></em>
+  <hr>
 
-<a class = "btn btn-success" href = "{% url 'articles:addarticle' %}">Add Article</a>
-<hr>
-
+  <a class = "btn btn-success" href = "{% url 'articles:addarticle' %}">Add Article</a>
+  <hr>
+</div>
 {% if articles %}
-<table class="table table-light table-hover table-striped">
+<table class="table table-light table-hover table-striped container">
     <thead class = "table-success">
       <tr>
         <th scope="col">id</th>
