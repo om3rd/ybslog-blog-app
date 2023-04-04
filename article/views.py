@@ -1,8 +1,9 @@
 from django.shortcuts import render,HttpResponse,redirect,get_object_or_404
 from .forms import ArticleForm
-from .models import Article
+from .models import Article,Comment
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.urls import reverse
 # Create your views here.
 
 def index(request):
@@ -92,7 +93,7 @@ def articles(request): #niye Article classından aldık çünkü veri tabanı mo
         return render(request,"articles.html",{"articles":articles}) #kelimeyi bulduğunda tekrar articles sayfası gelsin
     
     #eğer kullanıcı arama yapmıyorsa da if'e girmeden burdan devam edecek    
-    articles = Article.objects.all() #articles adında liste belirledik ve tüm article'ları içine atacak
+    articles = Article.objects.all().order_by("-created_date") #articles adında liste belirledik ve tüm article'ları içine atacak
     context = {
         "articles":articles
     }
@@ -102,4 +103,18 @@ def articles(request): #niye Article classından aldık çünkü veri tabanı mo
 
 @login_required(login_url= "user:login")
 def Addcomment(request,id):
-    pass
+    article = get_object_or_404(Article,id = id)
+    
+    if request.method == "POST":
+        
+        
+        comment_content = request.POST.get("comment_content")
+        
+        
+        newComment = Comment(comment_content = comment_content)
+        newComment.article = article
+        newComment.save()
+    
+    return redirect(reverse("articles:detail",kwargs = {"id":id})) 
+        #/articles/article/ + str(id) yaptık aslında
+        
